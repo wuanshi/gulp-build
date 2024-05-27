@@ -1,2 +1,2 @@
-const base = '11'
-const kkk = '222'
+export const base = '11'
+export const kkk = '222'

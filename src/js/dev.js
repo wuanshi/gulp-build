@@ -1,3 +1,3 @@
-function dva(params) {
+export function dva(params) {
     console.log('dva');
 }
