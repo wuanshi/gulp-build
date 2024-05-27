@@ -6,6 +6,7 @@ const browserify = require('browserify');
 const through2 = require('through2');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
+const cheerio = require('gulp-cheerio')
 const path = require('path');
 
 
@@ -63,4 +64,17 @@ gulp.task('base', function () {
     .pipe(gulp.dest('dist'))
 })
 
-gulp.task('default', gulp.parallel('js', 'css', 'base'));
+gulp.task('html', function () {
+  return gulp.src('src/**/*.html')
+    .pipe(cheerio(function ($, file) {
+      console.log('file', file);
+      // 遍历所有<script>标签
+      $('script[type="module"]').each(function () {
+        // 移除每个标签的type="module"属性
+        $(this).removeAttr('type');
+      });
+    }))
+    .pipe(gulp.dest('dist'))
+})
+
+gulp.task('default', gulp.parallel('js', 'css', 'base', 'html'));
