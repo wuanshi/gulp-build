@@ -58,7 +58,7 @@ gulp.task('css', function () {
 
 gulp.task('base', function () {
   return gulp.src('src/**/*')
-    .pipe(filter(['./src/php/**/*', './src/*'], {
+    .pipe(filter(['./src/php/**/*.php'], {
       dot: true
     }))
     .pipe(gulp.dest('dist'))
@@ -77,4 +77,4 @@ gulp.task('html', function () {
     .pipe(gulp.dest('dist'))
 })
 
-gulp.task('default', gulp.parallel('js', 'css', 'base', 'html'));
+gulp.task('default', gulp.parallel('js', 'css', 'base'));
