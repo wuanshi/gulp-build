@@ -20,6 +20,7 @@
     "@babel/core": "^7.24.6",
     "@babel/preset-env": "^7.24.6",
     "browserify": "^17.0.0",
+    "dayjs": "^1.11.11",
     "gulp-babel": "^8.0.0",
     "gulp-cheerio": "^1.0.0",
     "through2": "^4.0.2",
